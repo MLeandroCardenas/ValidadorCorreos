@@ -2,18 +2,17 @@
 package validadorcorreo;
 
 import javax.swing.BorderFactory;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-
+import javax.swing.JTextArea;
 
 public class PanelAyuda extends JPanel {
-    DialogoAyuda ventana2;
     
-    public PanelAyuda(DialogoAyuda ventana2) {
-           this.ventana2 = ventana2;
-            setBorder(BorderFactory.createTitledBorder(""));
-            setLayout(null);
-            
+    VentanaAyuda ventana3;
+    private JTextArea area;
+    
+    public PanelAyuda(VentanaAyuda ventana3){
+        this.ventana3 = ventana3;
+        setBorder(BorderFactory.createTitledBorder(""));
+        setLayout(null);
     }
 }

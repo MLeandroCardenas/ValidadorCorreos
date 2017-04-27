@@ -22,15 +22,17 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
     
     private JMenuItem mi1,mi2,mi3;
     
-    private DialogoAyuda ayuda;
+    private VentanaAyuda ayuda;
     
-    private DialogoVer ver;
+   private VentanaVer ver;
+    
+    
     
     public VentanaPrincipal() {
         iniciar();
     }
     
-    public void iniciar(){
+    private  void iniciar(){
         setSize(500, 600);
         setLocation(350, 20);
         setResizable(false);
@@ -72,7 +74,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
         
         if(e.getSource()==mi1) {
             System.out.println("entro a ayuda");
-            ayuda = new DialogoAyuda();
+            ayuda = new VentanaAyuda();
         }
         if(e.getSource() == mi2){
             System.out.println("entro a salir");
@@ -80,8 +82,8 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
     }
          if(e.getSource() == mi3){
              System.out.println("entro a ver");
-             ver = new DialogoVer(this);
+             ver = new VentanaVer();
+             
          } 
   }
- 
 }
