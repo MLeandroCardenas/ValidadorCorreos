@@ -19,8 +19,10 @@ import javax.swing.table.DefaultTableModel;
 public class VentanaVer extends JFrame implements ActionListener{
     
     private PanelVer panelVer;
-
-    public VentanaVer(){
+    private VentanaPrincipal menu;
+    
+    public VentanaVer(VentanaPrincipal aux){
+        menu=aux;
         iniciar();
     }
     
@@ -36,10 +38,14 @@ public class VentanaVer extends JFrame implements ActionListener{
         panelVer.setBackground(Color.WHITE);
         panelVer.setBounds(20, 15, 460, 540);
         add(panelVer);
-        
+        actualizarTabla();
         setVisible(true);
     }
-
+    public void actualizarTabla(){
+        for (String ayu: menu.canciones){
+            panelVer.actualizarTabla(ayu);
+        }
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
     }

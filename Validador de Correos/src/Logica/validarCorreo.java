@@ -29,7 +29,7 @@ public class validarCorreo {
             char cad[];
             cad=correo.toString().toCharArray();
             for (int i=0;i<cad.length;i++){
-                if (cad[0]!='.'){
+                if ((cad[0]!='.')&&(cad[0]!='@')){
                     if (cad[i]=='@'){
                         cont++;
                         if((i+1)!=cad.length){
@@ -43,17 +43,20 @@ public class validarCorreo {
                              else{
                                   menu.panel.panelImagen.Repintar("imagenes/Chulo.PNG");
                                   menu.panel.cambiarEtiqueta("Falta el dominio del correo");
+                                  menu.panel.ocultarBoton();
                              }
                         }
                         else{
                             menu.panel.panelImagen.Repintar("imagenes/Chulo.PNG");
                             menu.panel.cambiarEtiqueta("Falta el dominio del correo");
+                            menu.panel.ocultarBoton();
                         }
                     }
                     else{
                         if (cont==0){
                             menu.panel.panelImagen.Repintar("imagenes/mal.PNG");
                             menu.panel.cambiarEtiqueta("DEBE TENER EL @");
+                            menu.panel.ocultarBoton();
                         }
                         else{
                             if (bandera==false){
@@ -63,11 +66,13 @@ public class validarCorreo {
                                     if (cad[i+1]=='.'){
                                         menu.panel.panelImagen.Repintar("imagenes/mal.PNG");
                                         menu.panel.cambiarEtiqueta("No puede terminar en punto");
+                                        menu.panel.ocultarBoton();
                                         }
                                     }
                                 else{
                                         menu.panel.panelImagen.Repintar("imagenes/mal.PNG");
                                         menu.panel.cambiarEtiqueta("No puede terminar en punto");
+                                        menu.panel.ocultarBoton();
                                     }
                                 }
                             else{
@@ -76,7 +81,7 @@ public class validarCorreo {
                                         menu.panel.panelImagen.Repintar("imagenes/Chulo.PNG");
                                         menu.panel.cambiarEtiqueta("correo valido");
                                         verificarExistencia(correo.toString());
-                                        
+                                        break;
                                         }
                                         else{
                                             menu.panel.panelImagen.Repintar("imagenes/mal.PNG");
@@ -91,7 +96,7 @@ public class validarCorreo {
                 }
                 else{
                     menu.panel.panelImagen.Repintar("imagenes/mal.PNG");
-                    menu.panel.cambiarEtiqueta("No se puede iniciar con punto");
+                    menu.panel.cambiarEtiqueta("No se puede iniciar con punto o @");
                     menu.panel.ocultarBoton();
                     break;
                 }
@@ -105,18 +110,26 @@ public class validarCorreo {
         }
     }
     private void verificarExistencia(String f){
-       if (cont3==0){
-           cont3=1;
+       if (menu.canciones.isEmpty()){
            menu.panel.visualizarBoton();
+           menu.panel.cambiarEtiqueta("correo Disponible A");
        }
        else{
             for(String a : menu.canciones){
-                if (a==f){
-                    menu.panel.cambiarEtiqueta("EL correo ya existe");
+                if (a.equals(f)){
+                    cont3++;
+                    System.out.println("ENTRO IGUALDAD");
                 }
-                else{
+                System.out.print(a);
+            }
+            if (cont3==0){
                     menu.panel.cambiarEtiqueta("correo Disponible");
-                }
+                    menu.panel.visualizarBoton();
+            }
+            else{
+                menu.panel.cambiarEtiqueta("EL correo ya existe");
+                menu.panel.ocultarBoton();
+                cont3=0;
             }
        }
     }

@@ -34,6 +34,7 @@ public class PanelVentana extends JPanel implements KeyListener,ActionListener{
         setLayout(null);
         
         guardar= new JButton("Guardar Correo");
+        guardar.addActionListener(this);
         add(guardar);
         
         
@@ -84,7 +85,10 @@ public class PanelVentana extends JPanel implements KeyListener,ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ventana1.canciones.add(direccion.toString());
+        System.out.println("CORREO AÑADIDO"+direccion);
+        ocultarBoton();
+        etiqueta.setText("Correo Añadido");
     }
 
 }

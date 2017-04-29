@@ -29,8 +29,10 @@ public class PanelVer extends JPanel{
         add(scrollPane);
     }
     
-    public void actualizarTabla(){
-        
+    public void actualizarTabla(String f){
+        data=new Object[1];
+        data[0]=f;
+        dtm.addRow(data);
     }
     
     

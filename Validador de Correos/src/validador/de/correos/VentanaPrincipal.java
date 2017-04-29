@@ -85,7 +85,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
     }
          if(e.getSource() == mi3){
              System.out.println("entro a ver");
-             ver = new VentanaVer();
+             ver = new VentanaVer(this);
              
          } 
   }
